@@ -9619,7 +9619,7 @@ Error generating stack: ` + l.message + `
                 Pq === "about" && o.default.createElement("div", null,
                     sCard(null,
                         o.default.createElement("div", { style: { fontSize: 22, fontWeight: 800, marginBottom: 2 } }, o.default.createElement("span", { style: { color: P } }, "Check"), "Hub"),
-                        o.default.createElement("div", { style: { color: I, fontSize: 13, marginBottom: 12 } }, "Version 25.26"),
+                        o.default.createElement("div", { style: { color: I, fontSize: 13, marginBottom: 12 } }, "Version 25.27"),
                         o.default.createElement("div", { style: { color: K, fontSize: 14, lineHeight: 1.6 } }, "A private tracker for your habits, workouts, nutrition and finances. Your data lives on your device and, when signed in, syncs securely to your own private cloud account.")),
                     sCard(null,
                         o.default.createElement("div", { style: { fontWeight: 700, fontSize: 14, marginBottom: 8 } }, "What's tracked"),
@@ -13453,7 +13453,7 @@ Error generating stack: ` + l.message + `
         let kind = props.kind || "both";
         let ref = props.refDate, setRef = props.setRef;
         let today0 = props.today0, sess = props.sessions || [], hs = props.habits || [], lg = props.logs || {}, foodLog = props.foodLog || {}, tpls = props.templates || [];
-        let tplColor = z => { let t = tpls.find(x => x.id === z.id); return t && t.color || z.color || P }, tplName = z => { let t = tpls.find(x => x.id === z.id); return t && t.name || z.name || "Workout" };
+        let tplOf = z => tpls.find(x => x.id === z.tmplId) || tpls.find(x => x.id === z.id) || tpls.find(x => x.name === z.name); let tplColor = z => { let t = tplOf(z); return t && t.color || z.color || P }, tplName = z => { let t = tplOf(z); return t && t.name || z.name || "Workout" };
         let foodOn = ymd => { let f = foodLog[ymd]; return !!f && Object.keys(f).some(k => Array.isArray(f[k]) ? f[k].length > 0 : (k === "water" && +f[k] > 0)) };
         let dayCols = ymd => { let d2 = sess.filter(z => (z.date || "") === ymd), cols = []; d2.forEach(z => { let c = tplColor(z); if (cols.indexOf(c) < 0) cols.push(c) }); return cols };
         let splitGrad = cols => cols.length === 1 ? cols[0] : "linear-gradient(135deg, " + cols.map((c, i) => c + " " + Math.round(i / cols.length * 100) + "% " + Math.round((i + 1) / cols.length * 100) + "%").join(", ") + ")";
